@@ -1,40 +1,56 @@
 package com.bridgeLabz.birdsanctuary;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class BirdSanctuaryManager {
-    List<Birds> birdList = new ArrayList<Birds>();
+    Set<Birds> birdList = new HashSet<Birds>();
 
-    public void add(Birds bird) {
-        birdList.add(bird);
+
+    public void add(Birds bird) throws BirdSanctuaryException {
+        if (bird == null) {
+            throw new BirdSanctuaryException();
+        } else if(birdList.add(bird)) {
+            bird.incrementCount();
+            bird.totalCount++;
+
+        }
+    }
+
+    public void remove(Birds bird) {
+        if(birdList.remove(bird)) {
+            bird.decrementConut();
+        }
     }
 
     public void print() {
-        for(Birds list: birdList) {
+        for (Birds list: birdList) {
             System.out.println(list);
         }
     }
 
-    public void printFlyables() {
-        for(Birds bird: birdList) {
-            if(bird instanceof Flyable) {
-                ((Flyable)bird).fly();
+    public void printFlyable() {
+        for(Birds birds:birdList) {
+            if (birds instanceof Flyable) {
+                ((Flyable)birds).fly();
             }
         }
     }
 
-    public void printSwimmables() {
-        for(Birds bird: birdList) {
-            if(bird instanceof Swimmable) {
-                ((Swimmable)bird).swim();
+    public void printSwimmable() {
+        for (Birds birds:birdList) {
+            if (birds instanceof Swimmable) {
+                //        ((Swimmable)birds).swim();
+                Swimmable s = (Swimmable)birds;
+                s.swim();
             }
         }
     }
 
-    public void printEatables() {
-        for(Birds bird: birdList) {
-            bird.eat();
+    public void printEatable() {
+        for (Birds birds:birdList) {
+            birds.eat();
         }
     }
 }

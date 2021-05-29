@@ -1,26 +1,38 @@
 package com.bridgeLabz.birdsanctuary;
 
-public class Penguin extends Birds implements Swimmable{
+public class Penguin  extends Birds implements Swimmable{
+static int count;
 
-    String id;
-
-    public Penguin(String id) {
+public Penguin(String id ) {
         this.id = id;
-    }
+        }
 
-    @Override
-    public void eat() {
-        System.out.println("Penguin is eating");
-    }
-
-    @Override
-    public void swim() {
-        System.out.println("Penguin is swimming");
-    }
-
-    @Override
-    public String toString() {
+@Override
+public String toString() {
         return "Penguin [id=" + id + "]";
-    }
+        }
 
-}
+@Override
+public void eat() {
+        // TODO Auto-generated method stub
+        System.out.println( id + "is eatting");
+        }
+
+@Override
+public void swim() {
+        // TODO Auto-generated method stub
+        System.out.println( id +" is Swimming");
+        }
+
+@Override
+public void incrementCount() {
+        count++;
+        }
+
+@Override
+public void decrementConut() {
+        count--;
+        }
+
+
+        }

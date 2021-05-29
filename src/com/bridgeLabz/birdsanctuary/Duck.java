@@ -1,31 +1,44 @@
 package com.bridgeLabz.birdsanctuary;
 
-public class Duck extends Birds implements Flyable, Swimmable{
+public class   Duck extends Birds implements Flyable,Swimmable {
+         static int count;
+         public Duck(String id ) {
+            this.id = id;
+     }
+     @Override
 
-    String id;
+           public String toString() {
+             return "Duck [id=" + id + "]";
+         }
 
-    public Duck(String id) {
-        this.id = id;
+    @Override
+
+        public void eat() {
+        // TODO Auto-generated method stub
+        System.out.println( id + " is eatting");
+    }
+    @Override
+
+        public void fly() {
+        // TODO Auto-generated method stub
+        System.out.println( id + " is  flying");
+    }
+    @Override
+
+         public void swim() {
+        // TODO Auto-generated method stub
+        System.out.println( id + " is Swimming");
     }
 
     @Override
-    public void eat() {
-        System.out.println("Duck is eating");
+         public void incrementCount() {
+        count++;
+
     }
 
     @Override
-    public void fly() {
-        System.out.println("Duck is flying");
-    }
+        public void decrementConut() {
+        count--;
 
-    @Override
-    public void swim() {
-        System.out.println("Duck is swimming");
-    }
-
-    @Override
-    public String toString() {
-        return "Duck [id=" + id + "]";
     }
 }
-
